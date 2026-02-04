@@ -42,7 +42,7 @@ const Hero = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
           >
             <span className="text-foreground">I'm </span>
-            <span className="text-gradient">Shohanur Rahman</span>
+            <span className="text-gradient">Shohanur Rahman Shohan</span>
           </motion.h1>
 
           {/* Title */}
@@ -64,10 +64,29 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="font-mono text-muted-foreground mb-8 text-sm md:text-base"
+            className="font-mono text-muted-foreground mb-6 text-sm md:text-base"
           >
             Building web applications with Laravel 🚀 | Passionate about clean code & best practices ✨
           </motion.p>
+
+          {/* Profile Stats Badges */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55 }}
+            className="flex items-center justify-center gap-3 mb-8 flex-wrap"
+          >
+            <img
+              src="https://komarev.com/ghpvc/?username=shohancs&label=Profile%20Views&color=6366f1&style=for-the-badge"
+              alt="Profile Views"
+              className="h-7"
+            />
+            <img
+              src="https://img.shields.io/github/followers/shohancs?label=Followers&style=for-the-badge&color=6366f1"
+              alt="Followers"
+              className="h-7"
+            />
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div

@@ -27,7 +27,6 @@ const Skills = () => {
       icon: "💳",
       skills: [
         { name: "SSLCommerz", color: "bg-green-600" },
-        { name: "CoinGate Crypto", color: "bg-orange-500" },
         { name: "REST API", color: "bg-teal-500" },
         { name: "Third Party API", color: "bg-amber-600" },
         { name: "JSON Handling", color: "bg-gray-700" },
@@ -35,7 +34,6 @@ const Skills = () => {
       ],
       details: [
         { skill: "SSLCommerz", description: "Payment Gateway Integration for Bangladesh" },
-        { skill: "CoinGate", description: "Crypto Payment API Concept & Integration" },
         { skill: "REST API", description: "Building & Consuming RESTful APIs" },
         { skill: "Third-Party API", description: "External Service Integration" },
         { skill: "Webhooks", description: "Real-time Event Handling" },

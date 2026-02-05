@@ -7,15 +7,19 @@ import Projects from "@/components/Projects";
 import GitHubStats from "@/components/GitHubStats";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+ import ParticleBackground from "@/components/ParticleBackground";
+ import SkillProficiency from "@/components/SkillProficiency";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+       <ParticleBackground />
       <Navbar />
       <main>
         <Hero />
         <About />
         <TechStack />
+         <SkillProficiency />
         <Skills />
         <Projects />
         <GitHubStats />

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, ExternalLink, Folder } from "lucide-react";
+ import TiltCard from "./TiltCard";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -57,16 +58,19 @@ const Projects = () => {
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-6">
             {featuredProjects.map((project, index) => (
-              <motion.div
+               <TiltCard
                 key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative"
+                 className="group"
               >
-                <div className="h-full p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                 <motion.div
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={isInView ? { opacity: 1, y: 0 } : {}}
+                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                   className="h-full p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+                   style={{ transformStyle: "preserve-3d" }}
+                 >
                   {/* Header */}
-                  <div className="flex items-start justify-between mb-4">
+                   <div className="flex items-start justify-between mb-4" style={{ transform: "translateZ(30px)" }}>
                     <div className="flex items-center gap-3">
                       <span className="text-3xl">{project.icon}</span>
                       <Folder className="w-5 h-5 text-primary" />
@@ -94,15 +98,15 @@ const Projects = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                   <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors" style={{ transform: "translateZ(20px)" }}>
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                   <p className="text-muted-foreground text-sm leading-relaxed mb-6" style={{ transform: "translateZ(15px)" }}>
                     {project.description}
                   </p>
 
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
+                   <div className="flex flex-wrap gap-2" style={{ transform: "translateZ(25px)" }}>
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
@@ -112,8 +116,8 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                </div>
-              </motion.div>
+                 </motion.div>
+               </TiltCard>
             ))}
           </div>
 

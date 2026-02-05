@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Code2, Rocket, Users, Coffee } from "lucide-react";
+ import TypingTerminal from "./TypingTerminal";
 
 const About = () => {
   const ref = useRef(null);
@@ -14,6 +15,18 @@ const About = () => {
     { icon: Coffee, text: "Love turning ideas into working code" },
   ];
 
+   const terminalLines = [
+     { type: "comment" as const, content: "Initialize Developer Profile", delay: 300 },
+     { type: "command" as const, content: "php artisan make:developer Shohan" },
+     { type: "output" as const, content: "Developer profile created successfully!" },
+     { type: "command" as const, content: "echo $developer->skills" },
+     { type: "output" as const, content: '["PHP", "Laravel", "JavaScript", "MySQL"]' },
+     { type: "command" as const, content: "echo $developer->currentFocus()" },
+     { type: "output" as const, content: '"Building scalable web applications"' },
+     { type: "command" as const, content: "echo $developer->status" },
+     { type: "output" as const, content: '"Open for opportunities 🚀"' },
+   ];
+ 
   return (
     <section id="about" className="py-24 relative" ref={ref}>
       <div className="container px-6">
@@ -31,45 +44,14 @@ const About = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Code Block */}
+             {/* Typing Terminal */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="rounded-xl overflow-hidden border border-border bg-card">
-                {/* Window controls */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/50">
-                  <div className="w-3 h-3 rounded-full bg-destructive/80" />
-                  <div className="w-3 h-3 rounded-full bg-accent" />
-                  <div className="w-3 h-3 rounded-full bg-primary/60" />
-                  <span className="ml-4 font-mono text-xs text-muted-foreground">Developer.php</span>
-                </div>
-                
-                {/* Code content */}
-                <div className="p-6 font-mono text-sm overflow-x-auto">
-                  <pre className="leading-relaxed">
-                    <code>
-                      <span className="code-keyword">&lt;?php</span>{"\n\n"}
-                      <span className="code-keyword">class</span> <span className="code-text">Developer</span>{"\n"}
-                      {"{"}{"\n"}
-                      {"    "}<span className="code-keyword">public string</span> <span className="text-foreground">$name</span> = <span className="code-string">"Shohanur Rahman Shohan"</span>;{"\n"}
-                      {"    "}<span className="code-keyword">public string</span> <span className="text-foreground">$role</span> = <span className="code-string">"Laravel Developer"</span>;{"\n"}
-                      {"    "}<span className="code-keyword">public array</span> <span className="text-foreground">$languages</span> = [<span className="code-string">"PHP"</span>, <span className="code-string">"JavaScript"</span>];{"\n"}
-                      {"    "}<span className="code-keyword">public array</span> <span className="text-foreground">$frameworks</span> = [{"\n"}
-                      {"        "}<span className="code-string">"Laravel"</span>, <span className="code-string">"Bootstrap"</span>, <span className="code-string">"Tailwind CSS"</span>{"\n"}
-                      {"    "}];{"\n"}
-                      {"    "}<span className="code-keyword">public string</span> <span className="text-foreground">$database</span> = <span className="code-string">"MySQL"</span>;{"\n\n"}
-                      {"    "}<span className="code-keyword">public function</span> <span className="code-text">currentFocus</span>(): <span className="code-keyword">string</span>{"\n"}
-                      {"    "}{"{"}{"\n"}
-                      {"        "}<span className="code-keyword">return</span> <span className="code-string">"Building scalable web apps"</span>;{"\n"}
-                      {"    "}{"}"}{"\n"}
-                      {"}"}
-                    </code>
-                  </pre>
-                </div>
-              </div>
+               {isInView && <TypingTerminal lines={terminalLines} typingSpeed={25} />}
             </motion.div>
 
             {/* About Content */}

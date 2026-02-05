@@ -13,10 +13,6 @@ const Hero = () => {
       {/* Background grid pattern */}
       <div className="absolute inset-0 bg-grid-pattern bg-grid opacity-30" />
       
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-laravel/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1s" }} />
-      
       <div className="container relative z-10 px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import TiltCard from "./TiltCard";
 
 const TechStack = () => {
   const ref = useRef(null);
@@ -38,7 +39,6 @@ const TechStack = () => {
 
   const integrations = [
     { name: "SSLCommerz", description: "Payment Gateway" },
-    { name: "CoinGate", description: "Crypto Payments" },
     { name: "REST API", description: "API Development" },
     { name: "Webhooks", description: "Real-time Events" },
   ];
@@ -71,41 +71,56 @@ const TechStack = () => {
             <span className="h-px flex-1 bg-border max-w-xs" />
           </div>
 
-          {/* Tech Icons Grid */}
+          {/* Tech Icons Grid with 3D tilt */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {techCategories.map((category, catIndex) => (
-              <motion.div
-                key={category.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-                className="p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-colors"
-              >
-                <h3 className="font-semibold mb-6 text-lg">{category.title}</h3>
-                <div className="grid grid-cols-4 gap-4">
-                  {category.items.map((tech, index) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.3, delay: 0.2 + index * 0.05 }}
-                      className="flex flex-col items-center gap-2 group"
-                    >
-                      <div className="p-2 rounded-lg bg-secondary group-hover:scale-110 transition-transform">
-                        <img 
-                          src={tech.icon} 
-                          alt={tech.name} 
-                          className="w-8 h-8"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                        {tech.name}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
+              <TiltCard key={category.title} glareEnabled>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: catIndex * 0.15 }}
+                  className="p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-colors h-full"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <h3 className="font-semibold mb-6 text-lg" style={{ transform: "translateZ(20px)" }}>
+                    {category.title}
+                  </h3>
+                  <div className="grid grid-cols-4 gap-4" style={{ transform: "translateZ(30px)" }}>
+                    {category.items.map((tech, index) => (
+                      <motion.div
+                        key={tech.name}
+                        initial={{ opacity: 0, scale: 0.5, rotateY: -90 }}
+                        animate={isInView ? { opacity: 1, scale: 1, rotateY: 0 } : {}}
+                        transition={{
+                          duration: 0.5,
+                          delay: 0.3 + catIndex * 0.15 + index * 0.08,
+                          type: "spring",
+                          stiffness: 200,
+                        }}
+                        className="flex flex-col items-center gap-2 group"
+                      >
+                        <motion.div
+                          className="p-2 rounded-lg bg-secondary group-hover:scale-110 transition-transform"
+                          whileHover={{
+                            rotateY: 360,
+                            transition: { duration: 0.6 },
+                          }}
+                        >
+                          <img
+                            src={tech.icon}
+                            alt={tech.name}
+                            className="w-8 h-8"
+                            loading="lazy"
+                          />
+                        </motion.div>
+                        <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
+                          {tech.name}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              </TiltCard>
             ))}
           </div>
 
@@ -119,14 +134,24 @@ const TechStack = () => {
             <h3 className="font-semibold mb-6 text-lg flex items-center gap-2">
               <span className="text-primary">💳</span> Payment & API Integration
             </h3>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid sm:grid-cols-3 gap-4">
               {integrations.map((item, index) => (
                 <motion.div
                   key={item.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                  className="p-4 rounded-lg border border-border bg-card hover:border-primary/50 hover:bg-primary/5 transition-all group"
+                  initial={{ opacity: 0, x: -30, rotateY: -15 }}
+                  animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.5 + index * 0.1,
+                    type: "spring",
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    rotateY: 5,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="p-4 rounded-lg border border-border bg-card hover:border-primary/50 hover:bg-primary/5 transition-all group cursor-default"
+                  style={{ transformStyle: "preserve-3d" }}
                 >
                   <p className="font-medium group-hover:text-primary transition-colors">{item.name}</p>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
@@ -148,10 +173,20 @@ const TechStack = () => {
               {backendFeatures.map((feature, index) => (
                 <motion.span
                   key={feature}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.2, delay: 0.7 + index * 0.03 }}
-                  className="px-4 py-2 rounded-full border border-border bg-card text-sm hover:border-primary hover:text-primary transition-all cursor-default"
+                  initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                  animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.7 + index * 0.05,
+                    type: "spring",
+                    stiffness: 300,
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -3,
+                    transition: { duration: 0.15 },
+                  }}
+                  className="px-4 py-2 rounded-full border border-border bg-card text-sm hover:border-primary hover:text-primary hover:shadow-lg hover:shadow-primary/10 transition-all cursor-default"
                 >
                   {feature}
                 </motion.span>

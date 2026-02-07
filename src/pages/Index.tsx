@@ -4,25 +4,30 @@ import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import GitHubStats from "@/components/GitHubStats";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
- import ParticleBackground from "@/components/ParticleBackground";
- import SkillProficiency from "@/components/SkillProficiency";
+import ParticleBackground from "@/components/ParticleBackground";
+import SkillProficiency from "@/components/SkillProficiency";
+import AnimatedDivider from "@/components/AnimatedDivider";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-       <ParticleBackground />
+      <ParticleBackground />
       <Navbar />
       <main>
         <Hero />
+        <AnimatedDivider />
         <About />
+        <AnimatedDivider variant="reverse" />
         <TechStack />
-         <SkillProficiency />
+        <AnimatedDivider />
+        <SkillProficiency />
+        <AnimatedDivider variant="reverse" />
         <Skills />
+        <AnimatedDivider />
         <Projects />
-        <GitHubStats />
+        <AnimatedDivider variant="reverse" />
         <Contact />
       </main>
       <Footer />

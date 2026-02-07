@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronDown, FileDown } from "lucide-react";
 
 const Hero = () => {
   const socialLinks = [
@@ -102,6 +102,16 @@ const Hero = () => {
               className="px-8 py-3 border border-primary/50 text-primary rounded-lg font-medium hover:bg-primary/10 transition-all duration-300"
             >
               Get In Touch
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 border border-border text-muted-foreground rounded-lg font-medium hover:border-primary hover:text-primary transition-all duration-300 flex items-center gap-2"
+            >
+              <FileDown className="w-4 h-4" />
+              Download CV
             </a>
           </motion.div>
 

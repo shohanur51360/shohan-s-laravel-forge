@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("light-mode");
+  };
 
   const navItems = [
     { label: "About", href: "#about" },
@@ -62,16 +68,26 @@ const Navbar = () => {
                   {item.label}
                 </motion.a>
               ))}
-              <motion.a
+              <motion.button
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
+                onClick={toggleTheme}
+                className="p-2 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </motion.button>
+              <motion.a
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 text-sm border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
               >
-                Resume
+                CV
               </motion.a>
             </div>
 
@@ -113,17 +129,27 @@ const Navbar = () => {
                   {item.label}
                 </motion.a>
               ))}
-              <motion.a
+              <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
+                onClick={toggleTheme}
+                className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </motion.button>
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 px-8 py-3 text-lg border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
+                className="px-8 py-3 text-lg border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
               >
-                Resume
+                CV
               </motion.a>
             </div>
           </motion.div>

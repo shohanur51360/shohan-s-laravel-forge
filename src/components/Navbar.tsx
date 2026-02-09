@@ -129,17 +129,27 @@ const Navbar = () => {
                   {item.label}
                 </motion.a>
               ))}
-              <motion.a
+              <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
+                onClick={toggleTheme}
+                className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
+                aria-label="Toggle theme"
+              >
+                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </motion.button>
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-4 px-8 py-3 text-lg border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
+                className="px-8 py-3 text-lg border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
               >
-                Resume
+                CV
               </motion.a>
             </div>
           </motion.div>

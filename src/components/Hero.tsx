@@ -152,6 +152,7 @@ const Hero = () => {
               >
                 <FileDown className="w-4 h-4" />
                 Download CV
+
               </a>
             </MagneticButton>
           </motion.div>

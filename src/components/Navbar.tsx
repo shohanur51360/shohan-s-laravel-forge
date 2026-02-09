@@ -5,6 +5,12 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    document.documentElement.classList.toggle("light-mode");
+  };
 
   const navItems = [
     { label: "About", href: "#about" },

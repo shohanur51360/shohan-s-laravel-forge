@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/ParticleBackground";
 import SkillProficiency from "@/components/SkillProficiency";
 import AnimatedDivider from "@/components/AnimatedDivider";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (

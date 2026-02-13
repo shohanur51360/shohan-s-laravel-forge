@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Github, Linkedin, Mail, ChevronDown, FileDown } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronDown, FileDown, Facebook } from "lucide-react";
 import FloatingShapes from "./FloatingShapes";
 import GlitchText from "./GlitchText";
 import MagneticButton from "./MagneticButton";
@@ -8,6 +8,7 @@ const Hero = () => {
   const socialLinks = [
     { icon: Github, href: "https://github.com/shohancs", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com/in/shohancs", label: "LinkedIn" },
+    { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Mail, href: "mailto:shohancs.dev@gmail.com", label: "Email" },
   ];
 
@@ -28,26 +29,22 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* Animated grid that follows mouse */}
+      {/* Animated grid */}
       <motion.div
         className="absolute inset-0 bg-grid-pattern bg-grid opacity-20"
         style={{ x: bgX, y: bgY }}
       />
 
-      {/* 3D Floating geometric shapes */}
       <FloatingShapes />
 
-      {/* Central glow pulse */}
+      {/* Central glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <motion.div
           className="w-[600px] h-[600px] rounded-full"
           style={{
             background: "radial-gradient(circle, hsla(239, 84%, 67%, 0.12) 0%, transparent 70%)",
           }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0.8, 0.5],
-          }}
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
@@ -59,7 +56,7 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          {/* Greeting with glitch */}
+          {/* Glitch greeting */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,13 +64,13 @@ const Hero = () => {
             className="mb-4"
           >
             <GlitchText
-              text="<Hello World />"
-              className="font-mono text-primary text-sm md:text-base"
+              text="FULL-STACK SOFTWARE ENGINEER"
+              className="font-mono text-primary text-xs md:text-sm tracking-[0.3em]"
               glitchInterval={5000}
             />
           </motion.div>
 
-          {/* Name with 3D perspective */}
+          {/* Name */}
           <motion.h1
             initial={{ opacity: 0, y: 20, rotateX: 30 }}
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -81,45 +78,29 @@ const Hero = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4"
             style={{ perspective: "1000px" }}
           >
-            <span className="text-foreground">I'm </span>
-            <span className="text-gradient">Shohanur Rahman Shohan</span>
+            <span className="text-foreground">Hi, I'm </span>
+            <span className="text-gradient">Shahanur Rahman Shohan</span>
           </motion.h1>
 
-          {/* Title with animated lines */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex items-center justify-center gap-3 mb-6"
-          >
-            <motion.span
-              className="h-px bg-gradient-to-r from-transparent to-primary"
-              initial={{ width: 0 }}
-              animate={{ width: 48 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            />
-            <h2 className="text-xl md:text-2xl text-muted-foreground font-light">
-              Full Stack <span className="text-laravel font-medium">Laravel</span> Developer
-            </h2>
-            <motion.span
-              className="h-px bg-gradient-to-l from-transparent to-primary"
-              initial={{ width: 0 }}
-              animate={{ width: 48 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            />
-          </motion.div>
-
-          {/* Typing text */}
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="font-mono text-muted-foreground mb-8 text-sm md:text-base"
+            className="text-muted-foreground mb-2 text-sm md:text-base max-w-xl mx-auto"
           >
-            Building web applications with Laravel 🚀 | Passionate about clean code & best practices ✨
+            Building scalable web applications with a focus on Clean Code & Best Practices
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.55 }}
+            className="font-mono text-muted-foreground mb-8 text-xs md:text-sm"
+          >
+            <span className="text-laravel font-medium">Laravel Specialist</span> crafting robust backend systems.
           </motion.p>
 
-          {/* CTA Buttons with magnetic effect */}
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -128,41 +109,32 @@ const Hero = () => {
           >
             <MagneticButton strength={0.3}>
               <a
-                href="#projects"
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-primary/25 inline-block"
+                href="/resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 bg-primary/20 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 inline-flex items-center gap-2"
               >
-                View My Work
+                <FileDown className="w-4 h-4" />
+                Download CV
               </a>
             </MagneticButton>
             <MagneticButton strength={0.3}>
               <a
                 href="#contact"
-                className="px-8 py-3 border border-primary/50 text-primary rounded-lg font-medium hover:bg-primary/10 transition-all duration-300 inline-block"
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-primary/25 inline-block"
               >
-                Get In Touch
-              </a>
-            </MagneticButton>
-            <MagneticButton strength={0.3}>
-              <a
-                href="/resume.pdf"
-                download
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-3 border border-border text-muted-foreground rounded-lg font-medium hover:border-primary hover:text-primary transition-all duration-300 inline-flex items-center gap-2"
-              >
-                <FileDown className="w-4 h-4" />
-                Download CV
-
+                Hire Me
               </a>
             </MagneticButton>
           </motion.div>
 
-          {/* Social Links with stagger */}
+          {/* Social Links */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="flex items-center justify-center gap-6"
+            className="flex items-center justify-center gap-5"
           >
             {socialLinks.map((link, index) => (
               <MagneticButton key={link.label} strength={0.4}>

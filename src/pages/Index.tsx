@@ -2,12 +2,11 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import TechStack from "@/components/TechStack";
-import Skills from "@/components/Skills";
+import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/ParticleBackground";
-import SkillProficiency from "@/components/SkillProficiency";
 import AnimatedDivider from "@/components/AnimatedDivider";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -23,12 +22,10 @@ const Index = () => {
         <AnimatedDivider variant="reverse" />
         <TechStack />
         <AnimatedDivider />
-        <SkillProficiency />
+        <Services />
         <AnimatedDivider variant="reverse" />
-        <Skills />
-        <AnimatedDivider />
         <Projects />
-        <AnimatedDivider variant="reverse" />
+        <AnimatedDivider />
         <Contact />
       </main>
       <Footer />

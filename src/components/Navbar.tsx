@@ -13,8 +13,9 @@ const Navbar = () => {
   };
 
   const navItems = [
+    { label: "Home", href: "#" },
     { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
+    { label: "Services", href: "#services" },
     { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ];
@@ -23,7 +24,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -40,7 +40,6 @@ const Navbar = () => {
       >
         <div className="container px-6">
           <div className="flex items-center justify-between">
-            {/* Logo */}
             <motion.a
               href="#"
               initial={{ opacity: 0 }}
@@ -49,11 +48,10 @@ const Navbar = () => {
               className="font-mono text-lg font-bold"
             >
               <span className="text-primary">&lt;</span>
-              shohancs
+              Shohan
               <span className="text-primary"> /&gt;</span>
             </motion.a>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item, index) => (
                 <motion.a
@@ -64,14 +62,13 @@ const Navbar = () => {
                   transition={{ delay: 0.1 * (index + 1) }}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors animated-underline"
                 >
-                  <span className="font-mono text-primary text-xs mr-1">0{index + 1}.</span>
                   {item.label}
                 </motion.a>
               ))}
               <motion.button
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.6 }}
                 onClick={toggleTheme}
                 className="p-2 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
                 aria-label="Toggle theme"
@@ -81,17 +78,14 @@ const Navbar = () => {
               <motion.a
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 text-sm border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
+                transition={{ delay: 0.7 }}
+                href="#contact"
+                className="px-5 py-2 text-sm bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-all font-medium"
               >
-                CV
+                Hire Me
               </motion.a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-foreground"
@@ -103,7 +97,6 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -125,14 +118,13 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-2xl font-medium text-foreground hover:text-primary transition-colors"
                 >
-                  <span className="font-mono text-primary text-sm mr-2">0{index + 1}.</span>
                   {item.label}
                 </motion.a>
               ))}
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.5 }}
                 onClick={toggleTheme}
                 className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
                 aria-label="Toggle theme"
@@ -142,14 +134,12 @@ const Navbar = () => {
               <motion.a
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                transition={{ delay: 0.6 }}
+                href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="px-8 py-3 text-lg border border-primary text-primary rounded-md hover:bg-primary/10 transition-colors"
+                className="px-8 py-3 text-lg bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-all font-medium"
               >
-                CV
+                Hire Me
               </motion.a>
             </div>
           </motion.div>

@@ -62,47 +62,11 @@ const About = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Terminal + PHP Class */}
+            {/* Text + Info Cards */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
-            >
-              {/* PHP Class Display */}
-              <div className="rounded-xl overflow-hidden border border-border bg-card font-mono text-sm">
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/50">
-                  <div className="w-3 h-3 rounded-full bg-destructive/80" />
-                  <div className="w-3 h-3 rounded-full bg-accent" />
-                  <div className="w-3 h-3 rounded-full bg-primary/60" />
-                  <span className="ml-4 text-xs text-muted-foreground">Developer.php</span>
-                </div>
-                <div className="p-5 space-y-1 text-xs md:text-sm leading-relaxed">
-                  <p><span className="text-primary">&lt;?php</span></p>
-                  <p className="mt-2"><span className="text-primary">class</span> <span className="text-foreground font-semibold">Developer</span></p>
-                  <p>{"{"}</p>
-                  <p className="pl-4"><span className="text-primary">public string</span> <span className="text-accent">$name</span> = <span className="text-muted-foreground">"Shohanur Rahman Shohan"</span>;</p>
-                  <p className="pl-4"><span className="text-primary">public string</span> <span className="text-accent">$role</span> = <span className="text-muted-foreground">"Laravel Developer"</span>;</p>
-                  <p className="pl-4"><span className="text-primary">public array</span> <span className="text-accent">$languages</span> = [<span className="text-muted-foreground">"PHP"</span>, <span className="text-muted-foreground">"JavaScript"</span>];</p>
-                  <p className="pl-4"><span className="text-primary">public array</span> <span className="text-accent">$frameworks</span> = [<span className="text-muted-foreground">"Laravel"</span>, <span className="text-muted-foreground">"Bootstrap"</span>, <span className="text-muted-foreground">"Tailwind CSS"</span>];</p>
-                  <p className="pl-4"><span className="text-primary">public string</span> <span className="text-accent">$database</span> = <span className="text-muted-foreground">"MySQL"</span>;</p>
-                  <p className="mt-2 pl-4"><span className="text-primary">public function</span> <span className="text-foreground">currentFocus</span>(): <span className="text-primary">string</span></p>
-                  <p className="pl-4">{"{"}</p>
-                  <p className="pl-8"><span className="text-primary">return</span> <span className="text-muted-foreground">"Building scalable web applications with Laravel"</span>;</p>
-                  <p className="pl-4">{"}"}</p>
-                  <p>{"}"}</p>
-                </div>
-              </div>
-
-              {/* Typing Terminal */}
-              <TypingTerminal lines={terminalLines} typingSpeed={25} />
-            </motion.div>
-
-            {/* Text + Info Cards */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
               className="space-y-6"
             >
               <div className="space-y-4">
@@ -145,6 +109,15 @@ const About = () => {
                   </TiltCard>
                 ))}
               </div>
+            </motion.div>
+
+            {/* Typing Terminal - Right Side */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <TypingTerminal lines={terminalLines} typingSpeed={25} />
             </motion.div>
           </div>
         </motion.div>

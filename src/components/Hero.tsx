@@ -7,8 +7,8 @@ import MagneticButton from "./MagneticButton";
 const Hero = () => {
   const socialLinks = [
     { icon: Github, href: "https://github.com/shohancs", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/shohancs", label: "LinkedIn" },
-    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/shohancs/", label: "LinkedIn" },
+    { icon: Facebook, href: "https://www.facebook.com/shohancs/", label: "Facebook" },
     { icon: Mail, href: "mailto:shohancs.dev@gmail.com", label: "Email" },
   ];
 

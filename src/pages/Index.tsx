@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Skills from "@/components/Skills";
 import TechStack from "@/components/TechStack";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
@@ -22,10 +23,12 @@ const Index = () => {
         <AnimatedDivider variant="reverse" />
         <TechStack />
         <AnimatedDivider />
-        <Services />
+        <Skills />
         <AnimatedDivider variant="reverse" />
-        <Projects />
+        <Services />
         <AnimatedDivider />
+        <Projects />
+        <AnimatedDivider variant="reverse" />
         <Contact />
       </main>
       <Footer />

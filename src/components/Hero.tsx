@@ -87,18 +87,26 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-muted-foreground mb-2 text-sm md:text-base max-w-xl mx-auto"
+            className="text-muted-foreground mb-3 text-sm md:text-base max-w-xl mx-auto leading-relaxed"
           >
-            Building scalable web applications with a focus on Clean Code & Best Practices
+            Building scalable web applications with a focus on{" "}
+            <span className="text-foreground font-semibold">Clean Code</span> &{" "}
+            <span className="text-foreground font-semibold">Best Practices</span>
           </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.55 }}
-            className="font-mono text-muted-foreground mb-8 text-xs md:text-sm"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.55, type: "spring", stiffness: 200 }}
+            className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm"
           >
-            <span className="text-laravel font-medium">Laravel Specialist</span> crafting robust backend systems.
-          </motion.p>
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="font-mono text-primary font-semibold text-xs md:text-sm tracking-wide">
+              Laravel Specialist
+            </span>
+            <span className="text-muted-foreground text-xs md:text-sm">
+              — crafting robust backend systems
+            </span>
+          </motion.div>
 
           {/* CTA */}
           <motion.div

@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Sparkles, GraduationCap, Code2 } from "lucide-react";
-import TiltCard from "./TiltCard";
+import { Phone, MapPin, Briefcase, GraduationCap, Mail, FileDown } from "lucide-react";
 import TypingTerminal from "./TypingTerminal";
 
 const About = () => {
@@ -21,25 +20,12 @@ const About = () => {
     { type: "output" as const, content: '"Open for opportunities 🚀"', delay: 100 },
   ];
 
-  const infoCards = [
-    {
-      icon: Sparkles,
-      label: "Clean Code",
-      value: "Best Practices",
-      color: "text-primary",
-    },
-    {
-      icon: GraduationCap,
-      label: "Education",
-      value: "BSc in CSE",
-      color: "text-primary",
-    },
-    {
-      icon: Code2,
-      label: "Specialty",
-      value: "Laravel Expert",
-      color: "text-primary",
-    },
+  const infoItems = [
+    { icon: Phone, label: "Phone", value: "+88-01731578788" },
+    { icon: MapPin, label: "City", value: "Dhaka, Bangladesh" },
+    { icon: Briefcase, label: "Status", value: "Open to Work" },
+    { icon: GraduationCap, label: "Degree", value: "Bachelor of Science" },
+    { icon: Mail, label: "Email", value: "shohancs.dev@gmail.com" },
   ];
 
   return (
@@ -71,44 +57,46 @@ const About = () => {
             >
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  I'm <span className="text-foreground font-semibold">Shohanur Rahman Shohan</span>, a Full Stack Software Engineer with deep expertise in
-                  Laravel and PHP ecosystems. I hold a BSc in Computer Science & Engineering and I'm
-                  passionate about building scalable, secure, and maintainable web applications.
+                  I am <span className="text-foreground font-semibold">Shahanur Rahman Shohan</span>, a dedicated Full-Stack Software Engineer with strong expertise in the Laravel and PHP ecosystem and a BSc in Computer Science & Engineering. I focus on building scalable, secure, and maintainable web applications that deliver real business value including REST APIs, admin dashboards, e-commerce platforms, POS systems, and custom business solutions. I prioritize clean architecture, structured code, and performance optimization to ensure long-term reliability and smooth user experience.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  From REST APIs and admin panels to e-commerce solutions and POS systems — I build
-                  architecture that scales and lasts. I focus on clean and efficient code, performance
-                  optimization and modern development practices.
+                  I am driven by building fast, reliable, and well-structured systems using PHP, JavaScript, and MySQL, and I am comfortable working on both Windows and Linux environments. I enjoy transforming ideas into impactful digital products and always aim to deliver clean, efficient, and production-ready solutions.
                 </p>
               </div>
 
-              {/* Info Cards */}
-              <div className="space-y-4">
-                {infoCards.map((card, index) => (
-                  <TiltCard key={card.label} glareEnabled>
-                    <motion.div
-                      initial={{ opacity: 0, y: 15 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
-                      transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                      className="flex items-center gap-4 p-5 rounded-xl border border-border bg-card hover:border-primary/50 transition-all group"
-                      style={{ transformStyle: "preserve-3d" }}
-                    >
-                      <div
-                        className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                        style={{ transform: "translateZ(20px)" }}
-                      >
-                        <card.icon className="w-6 h-6" />
-                      </div>
-                      <div style={{ transform: "translateZ(15px)" }}>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                          {card.label}
-                        </p>
-                        <p className="font-semibold text-foreground">{card.value}</p>
-                      </div>
-                    </motion.div>
-                  </TiltCard>
+              {/* Info Items */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {infoItems.map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.08 }}
+                    className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card/50 hover:border-primary/50 transition-all"
+                  >
+                    <item.icon className="w-4 h-4 text-primary shrink-0" />
+                    <div className="min-w-0">
+                      <p className="text-xs text-muted-foreground">{item.label}</p>
+                      <p className="text-sm font-medium text-foreground truncate">{item.value}</p>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
+
+              {/* Download Resume */}
+              <motion.a
+                href="/resume.pdf"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 15 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.8 }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-all"
+              >
+                <FileDown className="w-4 h-4" />
+                Download Resume
+              </motion.a>
             </motion.div>
 
             {/* Typing Terminal - Right Side */}

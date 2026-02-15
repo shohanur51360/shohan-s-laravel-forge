@@ -25,9 +25,9 @@ const Index = () => {
         <AnimatedDivider />
         <Skills />
         <AnimatedDivider variant="reverse" />
-        <Services />
-        <AnimatedDivider />
         <Projects />
+        <AnimatedDivider />
+        <Services />
         <AnimatedDivider variant="reverse" />
         <Contact />
       </main>

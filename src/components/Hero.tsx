@@ -99,8 +99,8 @@ const Hero = () => {
             transition={{ delay: 0.55, type: "spring", stiffness: 200 }}
             className="mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm"
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="font-mono text-primary font-semibold text-xs md:text-sm tracking-wide">
+            <span className="w-2 h-2 rounded-full bg-red-800 animate-pulse" />
+            <span className="font-mono text-red-800 font-semibold text-xs md:text-sm tracking-wide animate-pulse">
               Laravel Specialist
             </span>
             <span className="text-muted-foreground text-xs md:text-sm">

@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Github, Linkedin, Mail, ChevronDown, FileDown, Facebook } from "lucide-react";
-import FloatingShapes from "./FloatingShapes";
+
 import GlitchText from "./GlitchText";
 import MagneticButton from "./MagneticButton";
 
@@ -35,17 +35,13 @@ const Hero = () => {
         style={{ x: bgX, y: bgY }}
       />
 
-      <FloatingShapes />
-
-      {/* Central glow */}
+      {/* Subtle central glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <motion.div
-          className="w-[600px] h-[600px] rounded-full"
+        <div
+          className="w-[500px] h-[500px] rounded-full"
           style={{
-            background: "radial-gradient(circle, hsla(239, 84%, 67%, 0.12) 0%, transparent 70%)",
+            background: "radial-gradient(circle, hsla(239, 84%, 67%, 0.08) 0%, transparent 70%)",
           }}
-          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 

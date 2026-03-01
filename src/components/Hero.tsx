@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Github, Linkedin, Mail, ChevronDown, FileDown, Facebook } from "lucide-react";
-import FloatingShapes from "./FloatingShapes";
+
 import GlitchText from "./GlitchText";
 import MagneticButton from "./MagneticButton";
 
